@@ -1,0 +1,33 @@
+{
+  "general": {
+    "select-lang": "Pilih Bahasa :",
+    "en": "Inggris",
+    "id": "Indonesia",
+    "create-btn": "Buat"
+  },
+  "company": {
+    "msg": {
+      "empty": "Tidak ada perusahaan yang dibuat"
+    },
+    "input-label": {
+      "list": "Perusahaan",
+      "create": "Buat Perusahaan",
+      "name": "Nama:",
+      "address": "Alamat:",
+      "revenue": "Keuntungan:",
+      "phone": "No Tlp:"
+    }
+  },
+  "office": {
+    "input-label": {
+      "name": "Nama:",
+      "location": "Lokasi:",
+      "start-date": "Tanggal Mulai:",
+      "company": "Perusahaan:"
+    },
+    "input-placeholder": {
+      "lat": "latitude",
+      "lon": "longitude"
+    }
+  }
+}

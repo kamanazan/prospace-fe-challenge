@@ -1,25 +1,18 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+import enTranslation from './assets/i18n/en.json'
+import idTranslation from './assets/i18n/id.json'
+
 // the translations
 // (tip move them in a JSON file and import them,
 // or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 const resources = {
   en: {
-    translation: {
-      "test-msg": "Click on the Vite and React logos to learn more",
-      "select-lang": "Select Language",
-      "en": "English",
-      "id": "Indonesia",
-    }
+    translation: enTranslation
   },
   id: {
-    translation: {
-      "test-msg": "Klik logo Vite dan React untuk mempelajari lebih jauh",
-      "select-lang": "Pilih Bahasa",
-      "en": "Inggris",
-      "id": "Indonesia"
-    }
+    translation: idTranslation
   }
 };
 

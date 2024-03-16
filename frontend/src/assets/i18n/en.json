@@ -1,0 +1,33 @@
+{
+  "general": {
+    "select-lang": "Select Language : ",
+    "en": "English",
+    "id": "Indonesia",
+    "create-btn": "Create"
+  },
+  "company": {
+    "msg": {
+      "empty": "There is no companies created yet"
+    },
+    "input-label": {
+      "list": "Companies",
+      "create": "Create Company",
+      "name": "Name:",
+      "address": "Address:",
+      "revenue": "Revenue:",
+      "phone": "Phone no:"
+    }
+  },
+  "office": {
+    "input-label": {
+      "name": "Name:",
+      "location": "Location:",
+      "start-date": "Start Date:",
+      "company": "Company:"
+    },
+    "input-placeholder": {
+      "lat": "latitude",
+      "lon": "longitude"
+    }
+  }
+}
