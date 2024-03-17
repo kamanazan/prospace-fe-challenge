@@ -1,8 +1,11 @@
-const DataCard = ({ title, data }) => {
+const DataCard = ({ title, data, onDelete }) => {
   
   return (
     <div className="card">
-      <span className="card-title">{title}</span>
+      <div className="card-header">
+        <span className="card-title">{title}</span>
+        <button onClick={onDelete}>X</button>
+      </div>
       {Object.keys(data).map((k) => {
         return (
           <div className="card-field" key={`${title}-${k}`}>

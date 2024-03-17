@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux'
 import './App.css'
 
-import Overview from "src/page/overview"
+import Overview from 'src/page/overview'
 
-import { setLanguage} from 'store'
+
+import { setLanguage } from 'store'
 
 function App() {
   const [t, i18n] = useTranslation()
@@ -19,10 +20,10 @@ function App() {
   
   return (
     <>
-      <div className="card">
-        <div id="snackbar"></div>
-        <div>
-          <label htmlFor="language-select">{t("general.select-lang")}:</label>
+      <div id="snackbar"></div>
+      <div className="top-menu">
+        <div className="align-left">
+          <label htmlFor="language-select">{t("general.select-lang")}</label>
           <select
             id="language-select"
             value={language}
