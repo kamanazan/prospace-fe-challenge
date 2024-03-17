@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux'
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from 'react-hook-form'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import { v4 as uuidv4 } from 'uuid'
 
 import { addOffice } from 'store'
@@ -12,6 +14,8 @@ const OfficeForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
+    control,
+    setValue
   } = useForm()
   const [t] = useTranslation()
   const dispatch = useDispatch()
@@ -26,12 +30,17 @@ const OfficeForm = () => {
     reset()
   }
   
+  const setDateValue = (data) => {
+    console.log({data})
+    setValue('startDate', data)
+  }
+  
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>{t('office.input-label.name')}</label>
         <br/>
-        <input {...register('name', {required: true})}/>
+        <input className="input-full" {...register('name', {required: true})}/>
         {errors.name && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
@@ -39,19 +48,40 @@ const OfficeForm = () => {
         <br/>
         <input className="input-half" {...register('lat', {required: true})}/>
         <input className="input-half" {...register('lon', {required: true})}/>
-        {errors.address && <p role="alert">{t('general.error-required')}</p>}
+        {errors.location && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
         <label>{t('office.input-label.start-date')}</label>
         <br/>
-        <input {...register('startDate', {required: true})}/>
-        {errors.name && <p role="alert">{t('general.error-required')}</p>}
+        <Controller
+          control={control}
+          name='startdate'
+          required
+          render={({ field }) => (
+            <DatePicker
+              dateFormat="YYYY-MM-DD"
+              placeholderText="Select date"
+              onChange={(date) => field.onChange(date)}
+              selected={field.value}
+              isClearable
+              shouldCloseOnSelect
+            />
+          )}
+        />
+        {errors.startDate && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
         <label>{t('office.input-label.company')}</label>
         <br/>
-        <input {...register('companyId', {required: true})}/>
-        {errors.revenue && <p role="alert">{t('general.error-required')}</p>}
+        <select defaultValue="" {...register('companyId', {required: true})}>
+          <option value="">----</option>
+          {companyList.map(value => (
+            <option key={`${value.id}-${value.name}`} value={value.id}>
+              {value.name}
+            </option>
+          ))}
+        </select>
+        {errors.companyId && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div className="button-full">
         <button type="submit">{t('general.create-btn')}</button>

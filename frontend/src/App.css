@@ -10,6 +10,11 @@
   text-align: left;
   gap: 32px;
   margin: 8px;
+  width: 100%;
+
+  form > div {
+    margin: 16px 0px;
+  }
 
   .input-phone-code {
     width: 15%;
@@ -20,6 +25,9 @@
     width: 25%;
     margin: 0 2px 0 2px;
   }
+  .input-full {
+    width: 75%;
+  }
 
   .button-full {
     display: flex;
@@ -29,6 +37,15 @@
       flex: 1;
       padding: 8px
     }
+  }
+
+  input {
+    height: 30px;
+  }
+
+  select {
+    height: 30px;
+    width: 75%;
   }
 }
 .card-container {
@@ -53,6 +70,7 @@
   & .card-field {
     display: flex;
     flex-direction: column;
+    white-space: pre-wrap;
   }
 }
 

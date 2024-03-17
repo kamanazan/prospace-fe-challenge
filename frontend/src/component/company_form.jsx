@@ -29,19 +29,19 @@ const CompanyForm = () => {
       <div>
         <label>{t('company.input-label.name')}</label>
         <br/>
-        <input {...register('name', {required: true})}/>
+        <input className="input-full" {...register('name', {required: true})}/>
         {errors.name && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
         <label>{t('company.input-label.address')}</label>
         <br/>
-        <input {...register('address', {required: true})}/>
+        <input className="input-full" {...register('address', {required: true})}/>
         {errors.address && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
         <label>{t('company.input-label.revenue')}</label>
         <br/>
-        <input {...register('revenue', {required: true, pattern: /\d+/, min: 0})}/>
+        <input className="input-full" {...register('revenue', {required: true, pattern: /\d+/, min: 0})}/>
         {errors.revenue && <p role="alert">{t('general.error-required')}</p>}
       </div>
       <div>
