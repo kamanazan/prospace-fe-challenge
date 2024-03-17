@@ -5,38 +5,58 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.form-container {
+  display: flex;
+  text-align: left;
+  gap: 32px;
+  margin: 8px;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  .input-phone-code {
+    width: 15%;
+    margin-right: 4px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .input-half {
+    width: 25%;
+    margin: 0 2px 0 2px;
+  }
+
+  .button-full {
+    display: flex;
+    margin: 8px 0 0 0;
+
+    button {
+      flex: 1;
+      padding: 8px
+    }
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.card-container {
+  text-align: left;
+  p {
+    font-size: 20px;
   }
 }
-
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 2em;
+  margin: 16px;
+  width: 50%;
+  text-align: left;
+  border: thin solid #1a1a1a;
+  gap: 8px;
+  & .card-title {
+    font-size: 32px;
+  }
+
+  & .card-field {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

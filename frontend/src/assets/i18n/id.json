@@ -3,15 +3,17 @@
     "select-lang": "Pilih Bahasa :",
     "en": "Inggris",
     "id": "Indonesia",
-    "create-btn": "Buat"
+    "create-btn": "Buat",
+    "error-required": "Field ini harus diisi"
   },
   "company": {
     "msg": {
-      "empty": "Tidak ada perusahaan yang dibuat"
+      "empty": "Tidak ada perusahaan yang dibuat",
+      "list": "Daftar Perusahaan",
+      "create": "Buat Perusahaan",
+      "create-success": "Perusahaan telah dibuat"
     },
     "input-label": {
-      "list": "Perusahaan",
-      "create": "Buat Perusahaan",
       "name": "Nama:",
       "address": "Alamat:",
       "revenue": "Keuntungan:",
@@ -19,6 +21,12 @@
     }
   },
   "office": {
+    "msg": {
+      "empty": "Tidak ada kantor yang dibuat",
+      "list": "Daftar Kantor",
+      "create": "Buat Kantor",
+      "create-success": "Kantor telah dibuat"
+    },
     "input-label": {
       "name": "Nama:",
       "location": "Lokasi:",

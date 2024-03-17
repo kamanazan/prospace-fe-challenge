@@ -3,15 +3,17 @@
     "select-lang": "Select Language : ",
     "en": "English",
     "id": "Indonesia",
-    "create-btn": "Create"
+    "create-btn": "Create",
+    "error-required": "This field is required"
   },
   "company": {
     "msg": {
-      "empty": "There is no companies created yet"
-    },
-    "input-label": {
+      "empty": "There is no companies created yet",
       "list": "Companies",
       "create": "Create Company",
+      "create-success": "Company created"
+    },
+    "input-label": {
       "name": "Name:",
       "address": "Address:",
       "revenue": "Revenue:",
@@ -19,6 +21,12 @@
     }
   },
   "office": {
+    "msg": {
+      "empty": "There is no offices created yet",
+      "list": "Offices",
+      "create": "Create Office",
+      "create-success": "Office created"
+    },
     "input-label": {
       "name": "Name:",
       "location": "Location:",

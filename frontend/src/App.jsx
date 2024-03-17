@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-import { setLanguage} from './store'
+import Overview from "src/page/overview"
+
+import { setLanguage} from 'store'
 
 function App() {
   const [t, i18n] = useTranslation()
@@ -21,7 +21,7 @@ function App() {
     <>
       <div className="card">
         <div>
-          <label htmlFor="language-select">{t("select-lang")}:</label>
+          <label htmlFor="language-select">{t("general.select-lang")}:</label>
           <select
             id="language-select"
             value={language}
@@ -32,9 +32,7 @@ function App() {
           </select>
         </div>
       </div>
-      <p className="read-the-docs">
-        {t('company.msg.empty')}
-      </p>
+      <Overview/>
     </>
   )
 }
