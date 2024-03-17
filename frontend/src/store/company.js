@@ -64,7 +64,7 @@ const companySlice = createSlice({
   },
   reducers: {
     addCompany: (state, action) => {
-      state.company_list = [ ...state.company_list, action.payload];
+      state.companyList = [ ...state.companyList, action.payload];
     },
   },
 });
