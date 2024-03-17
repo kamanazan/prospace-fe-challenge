@@ -22,6 +22,10 @@ const CompanyForm = () => {
       ...data
     }))
     reset()
+    const x = document.getElementById("snackbar");
+    x.className = "show";
+    x.textContent = t('company.msg.create-success');
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   
   return (

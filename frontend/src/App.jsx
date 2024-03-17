@@ -20,6 +20,7 @@ function App() {
   return (
     <>
       <div className="card">
+        <div id="snackbar"></div>
         <div>
           <label htmlFor="language-select">{t("general.select-lang")}:</label>
           <select

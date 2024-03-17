@@ -28,6 +28,10 @@ const OfficeForm = () => {
       ...data
     }))
     reset()
+    const x = document.getElementById("snackbar");
+    x.className = "show";
+    x.textContent = t('office.msg.create-success');
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   
   const setDateValue = (data) => {
