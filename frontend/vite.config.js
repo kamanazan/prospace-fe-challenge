@@ -10,4 +10,12 @@ export default defineConfig({
       store: "/src/store"
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      },
+    },
+  },
 })

@@ -6,6 +6,9 @@ const companySlice = createSlice({
     companyList: []
   },
   reducers: {
+    fetchCompany: (state, action) => {
+      state.companyList = action.payload
+    },
     addCompany: (state, action) => {
       state.companyList = [ ...state.companyList, action.payload];
     },
@@ -13,13 +16,12 @@ const companySlice = createSlice({
       const idxToDelete = state.companyList.findIndex(c => c.id === action.payload)
       if (idxToDelete !== -1) {
         const newList = state.companyList.toSpliced(idxToDelete, 1)
-        console.log({idxToDelete, newList})
         state.companyList = newList
       }
     }
   },
 });
 
-export const { addCompany, deleteCompany} = companySlice.actions;
+export const { fetchCompany, addCompany, deleteCompany} = companySlice.actions;
 
 export default companySlice.reducer;
