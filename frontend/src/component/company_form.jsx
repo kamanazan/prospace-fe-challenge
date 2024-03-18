@@ -17,15 +17,33 @@ const CompanyForm = () => {
   const dispatch = useDispatch()
   
   const onSubmit = (data) => {
-    dispatch(addCompany({
+    const newCompany = {
       id: uuidv4(),
       ...data
-    }))
-    reset()
-    const x = document.getElementById("snackbar");
-    x.className = "show";
-    x.textContent = t('company.msg.create-success');
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    const postData = async (data) => {
+      const response = await fetch('/api/company', {
+        method: 'POST',
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newCompany),
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+      })
+      
+      const status = await response.json()
+      dispatch(addCompany(newCompany))
+      reset()
+      const x = document.getElementById("snackbar");
+      x.className = "show";
+      x.textContent = t('company.msg.create-success');
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    postData(newCompany).catch(err => console.log())
   }
   
   return (

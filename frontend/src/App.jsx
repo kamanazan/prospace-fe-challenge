@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     fetch('/api/company')
       .then(res => res.json())
-      .then(res => dispatch(fetchCompany(res.data)))
+      .then(res => dispatch(fetchCompany(res)))
   }, [])
   const changeLanguage = (event) => {
     const lng = event.target.value
