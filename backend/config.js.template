@@ -1,2 +1,0 @@
-// connection string to mongodb
-export const MONGO_URI = ''

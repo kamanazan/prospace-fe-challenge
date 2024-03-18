@@ -1,15 +1,16 @@
 const express = require("express");
 const path = require('path');
+require('dotenv').config()
 const mongoose = require('mongoose');
 
 const Company = require('./models/company')
-const {MONGO_URI} = require("./config");
+
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 mongoose.set('strictQuery', false);
-const mongoURI = MONGO_URI
+const mongoURI = process.env.MONGO_URI
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoURI);
