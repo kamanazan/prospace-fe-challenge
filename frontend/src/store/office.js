@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const officeSlice = createSlice({
   name: 'office',
@@ -9,9 +9,15 @@ const officeSlice = createSlice({
     addOffice: (state, action) => {
       state.officeList = [ ...state.officeList, action.payload];
     },
+    deleteOffice: (state, action) => {
+      const idxToDelete = state.officeList.findIndex(o => o._id === action.payload)
+      if (idxToDelete !== -1) {
+        state.officeList = state.officeList.toSpliced(idxToDelete, 1)
+      }
+    }
   },
 });
 
-export const { addOffice} = officeSlice.actions;
+export const { addOffice, deleteOffice} = officeSlice.actions;
 
 export default officeSlice.reducer;

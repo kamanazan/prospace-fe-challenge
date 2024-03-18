@@ -4,14 +4,17 @@
     "en": "Inggris",
     "id": "Indonesia",
     "create-btn": "Buat",
-    "error-required": "Field ini harus diisi"
+    "error-required": "Field ini harus diisi",
+    "warn": "Peringatan"
   },
   "company": {
     "msg": {
       "empty": "Tidak ada perusahaan yang dibuat",
       "list": "Daftar Perusahaan",
       "create": "Buat Perusahaan",
-      "create-success": "Perusahaan telah dibuat"
+      "create-success": "Perusahaan telah dibuat",
+      "delete-confirm": "Anda yakin akan menghapus ini?",
+      "delete-success": "Perusahaan telah dihapus"
     },
     "input-label": {
       "name": "Nama:",

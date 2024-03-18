@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useForm, Controller } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { v4 as uuidv4 } from 'uuid'
 
 import { addOffice } from 'store'
 
@@ -23,15 +22,43 @@ const OfficeForm = () => {
   const companyList = useSelector((state) => state.company.companyList)
   
   const onSubmit = (data) => {
-    dispatch(addOffice({
-      id: uuidv4(),
-      ...data
-    }))
-    reset()
     const x = document.getElementById("snackbar");
-    x.className = "show";
-    x.textContent = t('office.msg.create-success');
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    const postData = async () => {
+      try {
+        const response = await fetch('/api/office', {
+          method: 'POST',
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data),
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+        })
+        console.log({response})
+        if (response.status === 400) {
+          throw new Error(response.statusText)
+        }
+        const newOffice = await response.json()
+        dispatch(addOffice({newOffice}))
+        reset()
+        x.className = "show";
+        x.textContent = t('office.msg.create-success');
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        
+      } catch (error) {
+        x.className = "show";
+        x.textContent = error;
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      }
+      
+    }
+    postData().then((r) => {console.log({created: r})}).catch(
+      (err) => console.log(err)
+    )
+    
   }
   
   const setDateValue = (data) => {
@@ -80,7 +107,7 @@ const OfficeForm = () => {
         <select defaultValue="" {...register('companyId', {required: true})}>
           <option value="">----</option>
           {companyList.map(value => (
-            <option key={`${value.id}-${value.name}`} value={value.id}>
+            <option key={`${value._id}-${value.name}`} value={value._id}>
               {value.name}
             </option>
           ))}

@@ -16,9 +16,7 @@ const CompanyForm = () => {
   const dispatch = useDispatch()
   
   const onSubmit = (data) => {
-    const newCompany = {
-      ...data
-    }
+   
     const postData = async () => {
       try {
         const response = await fetch('/api/company', {
@@ -29,17 +27,18 @@ const CompanyForm = () => {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(newCompany),
+          body: JSON.stringify(data),
           redirect: "follow",
           referrerPolicy: "no-referrer",
         })
+        const newCompany = await response.json()
         dispatch(addCompany(newCompany))
         reset()
         const x = document.getElementById("snackbar");
         x.className = "show";
         x.textContent = t('company.msg.create-success');
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-        return response.json()
+        
       } catch (error) {
         console.log({error})
       }
