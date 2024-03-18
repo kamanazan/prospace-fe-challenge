@@ -17,7 +17,7 @@ function App() {
     fetch('/api/company')
       .then(res => res.json())
       .then(res => dispatch(fetchCompany(res)))
-  }, [])
+  }, [dispatch])
   const changeLanguage = (event) => {
     const lng = event.target.value
     i18n.changeLanguage(lng);

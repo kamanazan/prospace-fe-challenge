@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useForm } from "react-hook-form"
-import { v4 as uuidv4 } from 'uuid'
 
 import { addCompany } from 'store'
 
@@ -18,32 +17,37 @@ const CompanyForm = () => {
   
   const onSubmit = (data) => {
     const newCompany = {
-      id: uuidv4(),
       ...data
     }
-    const postData = async (data) => {
-      const response = await fetch('/api/company', {
-        method: 'POST',
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newCompany),
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
-      })
-      
-      const status = await response.json()
-      dispatch(addCompany(newCompany))
-      reset()
-      const x = document.getElementById("snackbar");
-      x.className = "show";
-      x.textContent = t('company.msg.create-success');
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    const postData = async () => {
+      try {
+        const response = await fetch('/api/company', {
+          method: 'POST',
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newCompany),
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+        })
+        dispatch(addCompany(newCompany))
+        reset()
+        const x = document.getElementById("snackbar");
+        x.className = "show";
+        x.textContent = t('company.msg.create-success');
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        return response.json()
+      } catch (error) {
+        console.log({error})
+      }
+
     }
-    postData(newCompany).catch(err => console.log())
+    postData().then((r) => {console.log({created: r})}).catch(
+      (err) => console.log(err)
+    )
   }
   
   return (

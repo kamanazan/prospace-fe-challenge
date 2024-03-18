@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux'
-import { useForm } from 'react-hook-form'
-import { v4 as uuidv4 } from 'uuid'
 
-import { addCompany, deleteCompany, toggleModalShow } from 'store'
+import { deleteCompany, toggleModalShow } from 'store'
 
 import DataCard from "src/component/card"
 import CompanyForm from 'src/component/company_form'

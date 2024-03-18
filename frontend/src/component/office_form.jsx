@@ -35,8 +35,8 @@ const OfficeForm = () => {
   }
   
   const setDateValue = (data) => {
-    console.log({data})
-    setValue('startDate', data)
+    const value = new Date(data).toISOString().split('T')[0]
+    setValue('startDate', value)
   }
   
   return (
@@ -59,13 +59,13 @@ const OfficeForm = () => {
         <br/>
         <Controller
           control={control}
-          name='startdate'
+          name='startDate'
           required
           render={({ field }) => (
             <DatePicker
               dateFormat="YYYY-MM-DD"
               placeholderText="Select date"
-              onChange={(date) => field.onChange(date)}
+              onChange={setDateValue}
               selected={field.value}
               isClearable
               shouldCloseOnSelect
