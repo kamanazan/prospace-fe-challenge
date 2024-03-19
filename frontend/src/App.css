@@ -18,6 +18,7 @@
   gap: 32px;
   margin: 8px;
   width: 100%;
+  justify-content: space-between;
 
   form > div {
     margin: 16px 0px;
@@ -56,22 +57,31 @@
   }
 }
 .card-container {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   p {
     font-size: 20px;
   }
+}
+.card-page {
+  justify-content: space-between;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 .card {
   display: flex;
   flex-direction: column;
   padding: 2em;
   margin: 16px;
-  width: 50%;
+  width: 20rem;
   text-align: left;
   border: thin solid #1a1a1a;
   gap: 8px;
   & .card-title {
-    font-size: 32px;
+    font-size: 27px;
   }
 
   & .card-field {
@@ -89,7 +99,7 @@
 
 .card-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 30rem);
 }
 
 

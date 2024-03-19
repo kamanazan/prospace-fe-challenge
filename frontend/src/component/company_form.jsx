@@ -66,15 +66,15 @@ const CompanyForm = () => {
       <div>
         <label>{t('company.input-label.revenue')}</label>
         <br/>
-        <input className="input-full" {...register('revenue', {required: true, pattern: /\d+/, min: 0})}/>
-        {errors.revenue && <p role="alert">{t('general.error-required')}</p>}
+        <input className="input-full" {...register('revenue', {required: {value: true, message:t('general.error-required')}, pattern: {value:/^(?!-)[1-9][0-9]*$/, message: t('company.input-error.revenue')}})}/>
+        {errors.revenue && <p role="alert">{errors.revenue.message}</p>}
       </div>
       <div>
         <label>{t('company.input-label.phone')}</label>
         <br/>
-        <input className="input-phone-code" {...register('phoneCityCode', {required: true, pattern: /\d+/})}/>
-        <input {...register('phoneNumber', {required: true, pattern: /[\d|-]+/})}/>
-        {(errors.phoneCityCode || errors.phoneNumber) && <p role="alert">{t('general.error-required')}</p>}
+        <input className="input-phone-code" {...register('phoneCityCode', {required: {value: true, message:t('general.error-required')}, pattern: {value:/\d+/, message: t('company.input-error.phoneCityCode')}})}/>
+        <input {...register('phoneNumber', {required: {value: true, message:t('general.error-required')}, pattern: {message: t('company.input-error.phoneNumber'),value: /[\d|-]+/}})}/>
+        {(errors.phoneCityCode || errors.phoneNumber) && <p role="alert">{errors.phoneCityCode?.message || errors.phoneNumber?.message}</p>}
       </div>
       <div className="button-full">
         <button type="submit">{t('general.create-btn')}</button>

@@ -21,6 +21,11 @@
       "address": "Address:",
       "revenue": "Revenue:",
       "phone": "Phone no:"
+    },
+    "input-error" : {
+      "revenue": "Revenue should be positive integer",
+      "phoneNumber": "Phone code accepted format: +62, 62",
+      "phoneCityCode": "Phone number accepted format: 123456, 12-345-6"
     }
   },
   "office": {

@@ -21,6 +21,11 @@
       "address": "Alamat:",
       "revenue": "Keuntungan:",
       "phone": "No Tlp:"
+    },
+    "input-error" : {
+      "revenue": "Keuntungan harus bilangan bulat positif",
+      "phoneNumber": "Format kode telepon harus seperti: +62, 62",
+      "phoneCityCode": "Format nomor telepon harus seperti: 123456, 12-345-6"
     }
   },
   "office": {
