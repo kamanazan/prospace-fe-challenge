@@ -40,9 +40,12 @@ app.post('/api/company', async (req, res) => {
 
 app.post('/api/company/delete/:id', async (req, res) => {
   try {
+    console.log(req.params.id)
+    console.log('start delete')
     await Office.deleteMany({companyId: new ObjectId(req.params.id) })
     await Company.findByIdAndDelete(req.params.id);
-    res.status(200)
+    console.log('finish delete')
+    res.status(200).json({ message: 'Successfully deleted company' })
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
